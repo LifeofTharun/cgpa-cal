@@ -20,6 +20,7 @@ function doPost(e) {
       formattedDate // Appends the localized date and time in the 10th column (Column J)
     ]);
     
+    /* 
     // Automatically sort the sheet from Row 2 to Last Row
     // Column 9 is the CGPA column, sorted descending (highest score at top)
     var lastRow = sheet.getLastRow();
@@ -28,6 +29,7 @@ function doPost(e) {
       var range = sheet.getRange(2, 1, lastRow - 1, lastColumn);
       range.sort({column: 9, ascending: false});
     }
+    */
     
     return ContentService.createTextOutput(JSON.stringify({ result: "success" }))
       .setMimeType(ContentService.MimeType.JSON);
