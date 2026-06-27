@@ -34,3 +34,17 @@ function doPost(e) {
       .setMimeType(ContentService.MimeType.JSON);
   }
 }
+
+// Run this function ONCE in the Apps Script editor to sort all existing rows immediately!
+function sortExistingData() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var lastRow = sheet.getLastRow();
+  var lastColumn = sheet.getLastColumn();
+  if (lastRow > 2) {
+    var range = sheet.getRange(2, 1, lastRow - 1, lastColumn);
+    range.sort({column: 9, ascending: false}); // Sorts by CGPA (Column 9) in descending order
+    Logger.log("Existing data sorted successfully!");
+  } else {
+    Logger.log("Not enough rows to sort.");
+  }
+}
