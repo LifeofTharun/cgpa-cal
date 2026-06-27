@@ -42,6 +42,17 @@ const semestersData = [
             { name: "Naan Mudhalvan", credit: 2 },
             { name: "Project", credit: 4 }
         ]
+    },
+    {
+        name: "Semester 6",
+        subjects: [
+            { name: "TF", credit: 3 },
+            { name: "DF", credit: 3 },
+            { name: "Robot", credit: 3 },
+            { name: "BIGDATA", credit: 3 },
+            { name: "TF lab", credit: 3 },
+            { name: "DF lab", credit: 3 }
+        ]
     }
 ];
 
@@ -115,6 +126,13 @@ function calculateCGPA() {
 
     let cgpa = totalCredits ? (totalPoints / totalCredits).toFixed(2) : 0;
     document.getElementById("cgpa").innerText = cgpa;
+
+    // Percentage calculation (CGPA * 10)
+    let percentage = (cgpa * 10).toFixed(2);
+    const percentageEl = document.getElementById("percentage");
+    if (percentageEl) {
+        percentageEl.innerText = percentage + "%";
+    }
 }
 
 async function sendToGoogle(data) {
@@ -146,7 +164,8 @@ function showSummary() {
 
     const semGPAs = [];
     semestersData.forEach((sem, index) => {
-        const gpa = document.getElementById(`gpa${index}`).innerText;
+        const gpaEl = document.getElementById(`gpa${index}`);
+        const gpa = gpaEl ? gpaEl.innerText : "0.00";
         semGPAs.push(gpa);
     });
 
@@ -155,12 +174,14 @@ function showSummary() {
     const data = {
         name: name,
         regNo: regNo,
-        sem1: semGPAs[0],
-        sem2: semGPAs[1],
-        sem3: semGPAs[2],
-        sem4: semGPAs[3],
-        sem5: semGPAs[4],
-        cgpa: cgpa
+        sem1: semGPAs[0] || "0.00",
+        sem2: semGPAs[1] || "0.00",
+        sem3: semGPAs[2] || "0.00",
+        sem4: semGPAs[3] || "0.00",
+        sem5: semGPAs[4] || "0.00",
+        sem6: semGPAs[5] || "0.00",
+        cgpa: cgpa,
+        percentage: (parseFloat(cgpa) * 10).toFixed(2) + "%"
     };
 
     sendToGoogle(data)

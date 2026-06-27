@@ -166,6 +166,20 @@ input:focus {
     font-weight: 800;
 }
 
+.percentage-box {
+    margin-top: 20px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--glass-border);
+    padding-top: 20px;
+}
+
+#percentage {
+    color: #818cf8;
+    font-weight: 800;
+}
+
 .button-group {
     display: flex;
     gap: 15px;
@@ -250,6 +264,12 @@ button[onclick="resetForm()"]:hover {
 
     .cgpa-box h2 {
         font-size: 1.6rem;
+    }
+
+    .percentage-box {
+        font-size: 1.2rem;
+        margin-top: 15px;
+        padding-top: 15px;
     }
 
     button {
