@@ -136,7 +136,7 @@ function calculateCGPA() {
 }
 
 async function sendToGoogle(data) {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbziKHPHyX9OLjni2XzOaSxuMJXmcqtGt0Q3so2Ek7AVu_j5rIzQQnlygxrZkzU0aCyK/exec", {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbxs3xXmC6vbAExDz8VEpqavUMiEDpmMEa4VYV2J4dWkjF7729IihRsi3jP14vxOoiberQ/exec", {
         method: "POST",
         body: JSON.stringify(data)
     });

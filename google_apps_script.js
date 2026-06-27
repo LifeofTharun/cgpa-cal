@@ -14,8 +14,7 @@ function doPost(e) {
       data.sem5,
       data.sem6,
       data.cgpa,
-      data.percentage,
-      new Date() // Appends the current date and time in the 11th column (Column K)
+      new Date() // Appends the current date and time in the 10th column (Column J)
     ]);
     
     // Automatically sort the sheet from Row 2 to Last Row
